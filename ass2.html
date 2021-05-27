@@ -1,8 +1,6 @@
 <html>
     <head><title> Calculator </title></head>
-
     <body>
-
         <form name="calculator" style="justify-content: center; align-items: center;">
 
             <span>Input1 :</span>
@@ -11,8 +9,6 @@
             <input type = "number" name="in2"> <br>
             <br>
             <br>
-
-
             <button type="button" onclick="calculate(1)">Add</button>
             <button type="button" onclick="calculate(2)">Sub</button>
             <br>
@@ -21,7 +17,6 @@
         </form>
 
         <script type="text/javascript">
-
         const calculate = (operation) =>{
             let numberOne,numberTwo;
             let result;
@@ -43,16 +38,9 @@
                 case 2:
                     document.calculator.result.value = numberOne-numberTwo;
                     break;
-
-            }
-           
-            
-            
+            }              
         }
 
         </script>
-
-        </form>
-
     </body>
 </html>
