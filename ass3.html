@@ -6,8 +6,8 @@
 
 <body>
     <div>
-        <button type="button" onclick="operatetabs(1)">Open Tabs</button>
-        <button type="button" onclick="operatetabs(2)">Close Tabs</button>
+        <button type="button" onclick="operatetabs()">Open Tabs</button>
+        <button type="button" onclick="stopClosing()">Stop Closing Tabs</button>
 
 
     </div>
@@ -15,40 +15,33 @@
 
     <script>
         let arr = [];
-        const operatetabs = (ch) => {
+        let status = 0;
+        const operatetabs = () => {
 
-            switch (ch) {
-                case 1:
+           
                     for (let i = 0; i < 5; i++) {
                         let ref = window.open("https://www.google.com");
                         arr.push(ref);
                         
                     }
 
-                    setTimeout(() => {
-                        for (let i = 4; i >= 0; i--) {
-
-                            arr[i].close();
-                            arr.pop();
-
-                        }
-                    }, 10000);
-                    
-                    break;
-
-                case 2:
-
-                    for (let i = 0; i < 5; i++) {
-                        arr[i].close();
-                    }
-                    break;
-
-
-
-            }
-
-
-
+                  var closingTabs = setInterval(()=>{
+                      if(status === 1)
+                      {
+                          clearInterval(closingTabs);
+                      }
+                      
+                      let i = arr.length -1;
+                      arr[i].close();
+                      arr.pop();
+                      
+                  },10000);
+   
+        }
+        
+        
+        const stopClosing = () => {
+            status = 1;
         }
     </script>
 
