@@ -1,41 +1,34 @@
 <!Doctype html>
 <html>
+    <head>
+        <Title> Assignment 1</Title>
+    </head>
+    <body>
+        <script>
+            const numbers = prompt("Enter");
+            separatedArray = numbers.split(',');
+            let arr = [],frequency = []; 
+            let prev;
+            separatedArray.sort();
 
-<head>
-    <Title> Assignment 1</Title>
-</head>
-
-<body>
-    <script>
-        const numbers = prompt("Enter");
-      
-        separatedArray = numbers.split(',');
-        let arr = [],frequency = []; 
-        let prev;
-        separatedArray.sort();
-
-        for(let i=0;i<separatedArray.length;i++)
-        {
-            if(separatedArray[i] !== prev)
+            for(let i=0;i<separatedArray.length;i++)
             {
-                arr.push(separatedArray[i]);
-                frequency.push(1);
+                if(separatedArray[i] !== prev)
+                {
+                    arr.push(separatedArray[i]);
+                    frequency.push(1);
+                }
+                else{
+                    frequency[frequency.length-1]++;
+                }
+                prev = separatedArray[i];
             }
-            else{
-                frequency[frequency.length-1]++;
+
+            for(let i=0;i<arr.length;i++)
+            {
+                document.write(`Number : ${arr[i]}      Frequency: ${frequency[i]} `);
+                document.write("<br><br>");
             }
-            prev = separatedArray[i];
-        }
-
-
-        for(let i=0;i<arr.length;i++)
-        {
-            document.write(`Number : ${arr[i]}      Frequency: ${frequency[i]} `);
-            document.write("<br><br>");
-        }
-
-       
-    </script>
-</body>
-
+        </script>
+    </body>
 </html>
