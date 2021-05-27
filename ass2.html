@@ -28,7 +28,12 @@
 
             numberOne = Number(document.calculator.in1.value);
             numberTwo = Number(document.calculator.in2.value);
-
+               
+            if(!numberOne || !numberTwo)
+            {
+                alert("Enter two numbers...');
+                return;
+            }
             switch(operation)
             {
                 case 1:
