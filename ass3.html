@@ -1,50 +1,39 @@
 <html>
-
-<head>
-    <title> Assignment 3</title>
-</head>
-
-<body>
-    <div>
-        <button type="button" onclick="operatetabs()">Open Tabs</button>
-        <button type="button" onclick="stopClosing()">Stop Closing Tabs</button>
-
-
-    </div>
-
-
-    <script>
-        let arr = [];
-        let status = 0;
-        const operatetabs = () => {
-
-           
-                    for (let i = 0; i < 5; i++) {
-                        let ref = window.open("https://www.google.com");
-                        arr.push(ref);
+    <head>
+        <title> Assignment 3</title>
+    </head>
+    <body>
+        <div>
+            <button type="button" onclick="operatetabs()">Open Tabs</button>
+            <button type="button" onclick="stopClosing()">Stop Closing Tabs</button>
+        </div>
+        <script>
+            let arr = [];
+            let closingTabs;
+            const operatetabs = () => {
                         
-                    }
+                        for (let i = 0; i < 5; i++) {
+                            let ref = window.open("https://www.google.com");
+                            arr.push(ref);
 
-                  var closingTabs = setInterval(()=>{
-                      if(status === 1)
-                      {
-                          clearInterval(closingTabs);
-                      }
-                      
-                      let i = arr.length -1;
-                      arr[i].close();
-                      arr.pop();
-                      
-                  },10000);
-   
-        }
-        
-        
-        const stopClosing = () => {
-            status = 1;
-        }
-    </script>
+                        }
 
-</body>
+                        closingTabs = setInterval(()=>{
+                          let i = arr.length -1;
+                          arr[i].close();
+                          arr.pop();
+
+                         },10000);
+
+            }
+            
+            const stopClosing = () => {
+                if(closingTabs)
+                {
+                    clearInterval(closingTabs);
+                }
+            }
+        </script>
+    </body>
 
 </html>
